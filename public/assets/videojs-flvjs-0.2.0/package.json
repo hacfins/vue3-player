@@ -1,0 +1,191 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "videojs-flvjs",
+        "scope": null,
+        "escapedName": "videojs-flvjs",
+        "name": "videojs-flvjs",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\Code\\vue2-demo\\vue2-demo"
+    ]
+  ],
+  "_from": "videojs-flvjs@latest",
+  "_id": "videojs-flvjs@0.2.0",
+  "_inCache": true,
+  "_location": "/videojs-flvjs",
+  "_nodeVersion": "8.11.1",
+  "_npmOperationalInternal": {
+    "host": "s3://npm-registry-packages",
+    "tmp": "tmp/videojs-flvjs_0.2.0_1524925446192_0.3979377285112673"
+  },
+  "_npmUser": {
+    "name": "misterben",
+    "email": "npm@misterben.me"
+  },
+  "_npmVersion": "5.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "videojs-flvjs",
+    "scope": null,
+    "escapedName": "videojs-flvjs",
+    "name": "videojs-flvjs",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/videojs-flvjs/-/videojs-flvjs-0.2.0.tgz",
+  "_shasum": "4f775144acbf3846b3faa635cb13a93ebf982457",
+  "_shrinkwrap": null,
+  "_spec": "videojs-flvjs",
+  "_where": "D:\\Code\\vue2-demo\\vue2-demo",
+  "author": {
+    "name": "mister-ben",
+    "email": "git@misterben.me"
+  },
+  "browserify": {
+    "transform": [
+      "browserify-versionify"
+    ]
+  },
+  "browserify-shim": {
+    "qunit": "global:QUnit",
+    "sinon": "global:sinon",
+    "video.js": "global:videojs"
+  },
+  "bugs": {
+    "url": "https://github.com/mister-ben/videojs-flvjs/issues"
+  },
+  "contributors": [],
+  "dependencies": {
+    "browserify-versionify": "^1.0.6",
+    "video.js": "^5.10.1"
+  },
+  "description": "Video.js tech for FLV playback in MSE with flv.js",
+  "devDependencies": {
+    "babel-cli": "^6.14.0",
+    "babel-plugin-transform-object-assign": "^6.8.0",
+    "babel-preset-env": "^1.6.0",
+    "babelify": "^7.3.0",
+    "bannerize": "^1.0.2",
+    "bluebird": "^3.2.2",
+    "browserify": "^12.0.2",
+    "browserify-shim": "^3.8.12",
+    "budo": "^8.0.4",
+    "bundle-collapser": "^1.2.1",
+    "chg": "^0.3.2",
+    "flv.js": "^1.1.0",
+    "glob": "^6.0.3",
+    "global": "^4.3.0",
+    "husky": "^0.14.3",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-detect-browsers": "^2.0.2",
+    "karma-firefox-launcher": "^0.1.7",
+    "karma-ie-launcher": "^0.2.0",
+    "karma-qunit": "^0.1.9",
+    "karma-safari-launcher": "^0.1.1",
+    "lodash": "^4.11.2",
+    "mkdirp": "^0.5.1",
+    "npm-run-all": "^1.5.1",
+    "qunitjs": "^1.21.0",
+    "rimraf": "^2.5.1",
+    "semver": "^5.3.0",
+    "sinon": "~1.14.0",
+    "uglify-js": "^2.6.1",
+    "videojs-standard": "^4.0.0"
+  },
+  "directories": {},
+  "dist": {
+    "integrity": "sha512-Mm/NPMMjoC5kQQ+5QX8YwoF3vdfLw31i9sKBZloWRNu61x9gHRFfkOvVVLuqVZ5pMiHO9cDYjGehxn9ToNogBA==",
+    "shasum": "4f775144acbf3846b3faa635cb13a93ebf982457",
+    "tarball": "https://registry.npmjs.org/videojs-flvjs/-/videojs-flvjs-0.2.0.tgz",
+    "fileCount": 20,
+    "unpackedSize": 48673,
+    "npm-signature": "-----BEGIN PGP SIGNATURE-----\r\nVersion: OpenPGP.js v3.0.4\r\nComment: https://openpgpjs.org\r\n\r\nwsFcBAEBCAAQBQJa5IQHCRA9TVsSAnZWagAADNQP/30EktA0vUgIv5prHK64\njpn++sUVwxjut4+SHM+/KpGOviO2RX+8lSoTxcPlUj0w9xlvRLzphtm3OrIS\nIimg8rRjhTkAao9M+HjAvBQIId//AkWtaiMJWAiK+wq3Y4OwzWwQfTp79oNv\n1Xlg76H4UXfhITVQgvnHPX5TTwNVkYulDrGOeLWX1HyGVsRj3s5E3Q1adZ4E\n8JWXPS0kAWYVSdhPbw6hLJjT/9nx82hCpEpC2xT/8mAsdwfljc47JLfuIJBZ\nMCFi5Xjdp3vo8zqSh7qKzMionkjlou9RM8KWRao6I868CRthTHmE8ODfIGID\nzLXLQaRgGHjL2ieQfvp1w5DIZku9+schdmeTYKMq65gmWuel6uFISncSo+ta\n9qa+IB8vRSzr0xrRAK92Gy8J06yWCDAVXKyiuntBthAIvcxnwEzYP59nuQNj\nODa9QVM1XYjDJDaTJGUfq5lQRMnXx2HytIjDAgy62yhbwXTZsA2bMeSVNPKV\n7MWXOaXRmv3iV50TArmTMaj9o3XDBW8QLCAP1BWQmnxVlC5qUv0ZD5GHCjIh\n3pAJfHmaUB+kvW6Zmr2roqTNlRi9xqLB9KObLAhPpYgiELSmSvDenVyfP3ji\nxqcij6cSJ/9y5D0x5QWoDSk7S5eBxEsF3Dd5DQER7Cm1VCJv7kPfABU90tUG\nxnn7\r\n=rBJj\r\n-----END PGP SIGNATURE-----\r\n"
+  },
+  "files": [
+    "CONTRIBUTING.md",
+    "bower.json",
+    "dist/",
+    "docs/",
+    "es5/",
+    "index.html",
+    "scripts/",
+    "src/",
+    "test/"
+  ],
+  "generator-videojs-plugin": {
+    "version": "2.2.0"
+  },
+  "gitHead": "0ab2ca79d5c7b5c54b076c31f23957fa6f125f31",
+  "homepage": "https://github.com/mister-ben/videojs-flvjs#readme",
+  "keywords": [
+    "videojs",
+    "videojs-plugin"
+  ],
+  "license": "Apache-2.0",
+  "main": "es5/plugin.js",
+  "maintainers": [
+    {
+      "name": "misterben",
+      "email": "npm@misterben.me"
+    }
+  ],
+  "name": "videojs-flvjs",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mister-ben/videojs-flvjs.git"
+  },
+  "scripts": {
+    "build": "npm-run-all -p build:*",
+    "build:js": "npm-run-all build:js:babel build:js:browserify build:js:bannerize build:js:collapse build:js:uglify",
+    "build:js:babel": "babel src -d es5",
+    "build:js:bannerize": "bannerize dist/videojs-flvjs.js --banner=scripts/banner.ejs",
+    "build:js:browserify": "browserify . -g browserify-shim -s videojs-flvjs -o dist/videojs-flvjs.js",
+    "build:js:collapse": "bundle-collapser dist/videojs-flvjs.js -o dist/videojs-flvjs.min.js",
+    "build:js:uglify": "uglifyjs dist/videojs-flvjs.min.js --comments --mangle --compress -o dist/videojs-flvjs.min.js",
+    "build:test": "babel-node scripts/build-test.js",
+    "change": "chg add",
+    "clean": "rimraf dist test/dist es5 && mkdirp dist test/dist es5",
+    "lint": "vjsstandard",
+    "postversion": "babel-node scripts/postversion.js",
+    "prebuild": "npm run clean",
+    "prepare": "npm run build",
+    "prepush": "npm run lint",
+    "pretest": "npm-run-all lint build",
+    "preversion": "npm test",
+    "start": "babel-node scripts/server.js",
+    "test": "karma start test/karma.conf.js",
+    "test:chrome": "npm run pretest && karma start test/karma.conf.js --browsers Chrome",
+    "test:firefox": "npm run pretest && karma start test/karma.conf.js --browsers Firefox",
+    "test:ie": "npm run pretest && karma start test/karma.conf.js --browsers IE",
+    "test:safari": "npm run pretest && karma start test/karma.conf.js --browsers Safari",
+    "version": "babel-node scripts/version.js"
+  },
+  "style": "dist/videojs-flvjs.css",
+  "version": "0.2.0",
+  "videojs-plugin": {
+    "style": "dist/videojs-flvjs.css",
+    "script": "dist/videojs-flvjs.min.js"
+  },
+  "vjsstandard": {
+    "ignore": [
+      "dist",
+      "docs",
+      "es5",
+      "scripts",
+      "test/dist",
+      "test/karma.conf.js"
+    ]
+  }
+}

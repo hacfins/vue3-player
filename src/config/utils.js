@@ -1,64 +1,93 @@
-import dtime from 'time-formater'
-import useClipboard from 'vue-clipboard3'
-const { toClipboard } = useClipboard();
-
-export const copy = async (str,fn) => {
-    try {
-        await toClipboard(str)
-
-        fn && fn()
-
-    } catch (e) {
-        console.error(e)
-    }
-}
-
-
-export const randomBgColor = function (user_name) {
-    var result = 0
-    for(var i = 0; i < user_name.length; i++){
-        result+=user_name.charCodeAt(i)
-    }
-
-    var default_color_arr = ['#36D9D9','#3DBAF9','#FFA351','#3A80F7'];
-    var randomIndex = result % default_color_arr.length;
-    return default_color_arr[randomIndex]
-}
-
-
-export const timeCustomFormat = function (time,format_str,isnottoday) {
-    if (typeof time != "string") {
-        return;
-    }
-    var newstr   = time.replace(/-/g, '/');
-    var curY = new Date().getFullYear();
-    var today_date = dtime(new Date()).format('YYYY-MM-DD')
-    var tomorrow_date = dtime(new Date().getTime() + 86400000).format('YYYY-MM-DD');
-
-    var start_date = dtime(newstr).format('YYYY-MM-DD')
-
-
-    var paramsY = new Date(newstr).getFullYear();
-    var formatStr = 'YYYY-MM-DD HH:mm'
-    if(format_str){
-        formatStr = format_str
-    }
-    if(isnottoday){
-        if(curY == paramsY){
-            formatStr = formatStr.replace('YYYY-','')
+export const IsPC = function () {
+    var userAgentInfo = navigator.userAgent.toLowerCase();
+    var Agents        = ["android", "symbianos", "windows phone",
+        "ipad", "ipod", "iphone", "android", "phone", "mobile",
+        "wap", "netfront", "java", "opera mobi", "opera mini", "ucweb",
+        "windows ce", "symbian", "series", "webos", "sony",
+        "blackberry", "dopod", "nokia", "samsung", "palmsource", "xda",
+        "pieplus", "meizu", "midp", "cldc", "motorola", "foma",
+        "docomo", "up.browser", "up.link", "blazer", "helio", "hosin",
+        "huawei", "novarra", "coolpad", "webos", "techfaith",
+        "palmsource", "alcatel", "amoi", "ktouch", "nexian",
+        "ericsson", "philips", "sagem", "wellcom", "bunjalloo", "maui",
+        "smartphone", "iemobile", "spice", "bird", "zte-", "longcos",
+        "pantech", "gionee", "portalmmm", "jig browser", "hiptop",
+        "benq", "haier", "^lct", "320x320", "240x320", "176x220",
+        "w3c ", "acs-", "alav", "alca", "amoi", "audi", "avan", "benq",
+        "bird", "blac", "blaz", "brew", "cell", "cldc", "cmd-", "dang",
+        "doco", "eric", "hipt", "inno", "ipaq", "java", "jigs", "kddi",
+        "keji", "leno", "lg-c", "lg-d", "lg-g", "lge-", "maui", "maxo",
+        "midp", "mits", "mmef", "mobi", "mot-", "moto", "mwbp", "nec-",
+        "newt", "noki", "oper", "palm", "pana", "pant", "phil", "play",
+        "port", "prox", "qwap", "sage", "sams", "sany", "sch-", "sec-",
+        "send", "seri", "sgh-", "shar", "sie-", "siem", "smal", "smar",
+        "sony", "sph-", "symb", "t-mo", "teli", "tim-", /*"tosh",*/ "tsm-",
+        "upg1", "upsi", "vk-v", "voda", "wap-", "wapa", "wapi", "wapp",
+        "wapr", "webc", "winw", "winw", "xda", "xda-", "Googlebot-Mobile"];
+    var flag          = true;
+    for (var v = 0; v < Agents.length; v++) {
+        if (userAgentInfo.indexOf(Agents[v]) > 0) {
+            flag = false;
+            break;
         }
+    }
+    return flag;
+}
+
+export const hasUsableSWF = function () {
+    var flag = false;
+    var swf;
+    if(typeof window.ActiveXObject != "undefined"){
+        swf = new  ActiveXObject("ShockwaveFlash.ShockwaveFlash");
     }else{
-        if(start_date == today_date){
-            formatStr = formatStr.replace('YYYY-MM-DD','今天 ')
-        }else if(start_date == tomorrow_date){
-            formatStr = formatStr.replace('YYYY-MM-DD','明天 ')
-        }else if(curY == paramsY){
-            formatStr = formatStr.replace('YYYY-','')
-        }
+        swf = navigator.plugins['Shockwave Flash'];
     }
-
-    return  dtime(newstr).format(formatStr)
+    if(swf){
+        flag = true;
+    }else{
+        flag = false
+    }
+    return flag
 
 }
 
+export const mathRand = function () {
+    var Num="";
+    for(var i=0;i<6;i++){
+        Num+=Math.floor(Math.random()*10);
+    }
+    return Num
+}
+/**
+ * 判断是否是safri
+ * @returns {boolean}
+ * @constructor
+ */
+export const IsSafri = function () {
+    var flag = false;
+    if (bowser.safari) {
+        flag = true;
+    }
+    return flag;
+}
+export const IsAndroid = function () {
+    return  bowser.android
+}
+export const isIE   = function () {
+    return bowser.msie
 
+}
+export const IsWx = function () {
+    var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+
+    return ua.match(/MicroMessenger/i) == "micromessenger";
+}
+export const IsFireFox = function(){
+    return  bowser.firefox
+}
+
+export const IsDD = function () {
+    var ua = navigator.userAgent.toLowerCase();//获取判断用的对象
+
+    return ua.match(/dingtalk/i) == "dingtalk";
+}

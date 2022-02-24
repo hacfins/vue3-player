@@ -1,9 +1,9 @@
 import {createRouter, createWebHistory, createWebHashHistory} from 'vue-router'
-const poster = () => import(/* webpackChunkName: "index-main" */ '@/pages/poster/children/poster')
+const player = () => import(/* webpackChunkName: "index-main" */ '@/pages/player/children/player')
 const routes = [
     {
         path     : '/',
-        component: poster,
+        component: player,
         name     : ''
     }
 ];
