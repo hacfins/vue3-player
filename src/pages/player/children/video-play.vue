@@ -1,9 +1,8 @@
 <template>
-    <div class=" detail-video" v-loading="!isShowVideo">
+    <div class=" detail-video">
         <vue-video
             v-if="rePlaySrc"
             v-show="isShowVideo"
-            v-loading="!loadedMeta"
             class="vjs-custom-skin vjs-vod"
             ref="videoPlayer"
             refname="playvideo"
@@ -28,9 +27,6 @@
 
 <script>
     import PlayVideo from 'components/video'
-    import {sectionPlay, filePlay} from '@/api/getdata'
-    import {setLocalStorage, getLocalStorage, deleteLocalStorage,getSessionStorage} from '@/config/utils'
-
     export default {
         props     : {
             playSection: {

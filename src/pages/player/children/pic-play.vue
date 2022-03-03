@@ -1,20 +1,11 @@
 <template>
     <div class="pic-play">
-        <img v-if="curImgSrc" @click="previewPic" :src="curImgSrc" alt="">
-        <preview
-            ref="preview"
-            :openItem="playSection"
-            :showThumb="showThumb"
-        >
-        </preview>
-    </div>
+        <img v-if="curImgSrc" :src="curImgSrc" alt="">
 
+    </div>
 </template>
 
 <script>
-    import preview from 'components/vod-preview'
-    import {sectionPlay,filePlay} from '@/api/getdata'
-    import {getSessionStorage} from '@/config/utils'
     export default {
         props:{
             playSection:{
@@ -40,7 +31,7 @@
 
         },
         components: {
-            preview
+
         },
         mounted(){
 
@@ -61,8 +52,7 @@
 
             previewPic(){
 
-                this.$refs.preview.previewShow = true;
-                this.$refs.preview.listData = this.picList;
+
 
             }
 
