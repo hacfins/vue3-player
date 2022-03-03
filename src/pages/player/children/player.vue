@@ -179,7 +179,6 @@
 </script>
 
 <style lang="scss" rel="stylesheet/scss">
-
 	.playe-wrap {
 		.player-wrap-cnt{
 			width: 1440px;
