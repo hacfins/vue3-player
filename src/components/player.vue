@@ -124,8 +124,8 @@
                     f_type_name:'PPT',
                     play_info:{
                         list:[
-                            "/medias/page-0.jpg",
-                            "/medias/page-1.jpg"
+                            "/medias/ppt-0.jpg",
+                            "/medias/ppt-1.jpg"
                         ]
                     }
                 },{
