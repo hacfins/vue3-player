@@ -5,7 +5,7 @@
                 <detail-video
                     v-show="playSection.f_type == 1"
                     :playSection="playSection"
-                    :videoInfo="videoInfo"
+                    :videoInfo="params.video"
                     ref="detail_video">
                 </detail-video>
                 <detail-pic
@@ -34,7 +34,7 @@
             </div>
             <div class="player-wrap-left">
                 <div class="lesson-list-wrap">
-                    <course-catalog ref="catalog" @change="changeLesson" :sectionList="sectionList"></course-catalog>
+                    <course-catalog ref="catalog" @change="changeLesson" :sectionList="params.section_list"></course-catalog>
                 </div>
             </div>
         </div>
@@ -51,9 +51,14 @@
     import courseCatalog from 'components/detail-course-catalog'
     export default {
         props     : {
-            videoInfo:{
+            params:{
                 type   : Object,
-                default: null
+                default: {
+                    video:{
+                        is_fill:false
+                    },
+                    section_list : []
+                }
             }
         },
         data(){
@@ -90,78 +95,16 @@
                 lessonreq:false,
                 playSection:'',
 
-                sectionList:[{
-                    lesson_id:1,
-                    lesson_name:'课时1',
-                    f_type:1,
-                    f_type_name:'视频',
-                    play_info:{
-                        list:['/medias/01_avc_1104x622p25_aac_44100_2.mp4']
-                    }
-                },{
-                    lesson_id:2,
-                    lesson_name:'课时2',
-                    f_type:2,
-                    f_type_name:'图片',
-                    play_info:{
-                        list:['/medias/01_1920x1080p.png']
-                    }
-                },{
-                    lesson_id:3,
-                    lesson_name:'课时3',
-                    f_type:3,
-                    f_type_name:'文档',
-                    play_info:{
-                        list:[
-                            "/medias/page-0.jpg",
-                            "/medias/page-1.jpg"
-                        ]
-                    }
-                },{
-                    lesson_id:4,
-                    lesson_name:'课时4',
-                    f_type:34,
-                    f_type_name:'PPT',
-                    play_info:{
-                        list:[
-                            "/medias/ppt-0.jpg",
-                            "/medias/ppt-1.jpg"
-                        ]
-                    }
-                },{
-                    lesson_id:5,
-                    lesson_name:'课时5',
-                    f_type:4,
-                    f_type_name:'音乐',
-                    play_info:{
-                        list:[
-                            "/medias/12_MPEG-Audio_8000_1.mp3"
-                        ]
-                    }
-                },{
-                    lesson_id:6,
-                    lesson_name:'课时6',
-                    f_type:4,
-                    f_type_name:'音乐',
-                    play_info:{
-                        list:[
-                            "/medias/06_aac_32000_1.aac"
-                        ]
-                    }
-                }],
-
             }
         },
         computed  : {
             audioList(){
-
-
-                return  this.sectionList.filter((item) => {
+                return  this.params.section_list.filter((item) => {
                         return item.f_type == 4
                     })
             },
             picList(){
-                return this.sectionList.filter((item) => {
+                return this.params.section_list.filter((item) => {
                         return item.f_type == 2
                     })
             },
@@ -181,8 +124,6 @@
         methods:{
             changeLesson(val){
                 this.playSection = val;
-
-
             },
             playToggle(){
                 if(this.myplayer.paused()){
