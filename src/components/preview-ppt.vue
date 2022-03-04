@@ -75,13 +75,8 @@
                     return;
 
                 }
-                var res = {
-                    play_info:{
-                        list:[]
-                    }
-                }
-                this.totalCount = res.play_info.list.length;
-                res.play_info.list.forEach((imgitem, i) => {
+                this.totalCount = this.curItem.play_info.list.length;
+                this.curItem.play_info.list.forEach((imgitem, i) => {
                     this.pptList[(this.curpage - 1) + i] = imgitem
                 })
                 this.curImgSrc = this.pptList[0];

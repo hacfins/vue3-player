@@ -1,7 +1,7 @@
 <template>
     <div class="doc-pages-panel" @scroll="docScroll">
         <div id="docPages"  :style="{width:currWithPer+'%'}">
-            <div :page="item"  class="docSrc" v-for=" item in totalCount" :style="{height:docSrcHeight+'px'}" v-loading="!docPageList[item - 1]">
+            <div :page="item"  class="docSrc" v-for=" item in totalCount" :style="{height:docSrcHeight+'px'}">
                 <img @load="imgLoad" v-if="docPageList[item - 1]"  :src="docPageList[item -1].url" alt="" style="width:100%">
             </div>
             <div class="toolbar">
@@ -137,18 +137,14 @@
                     return
                 }
 
-                var res = {
-                    play_info:{
-                        list:[]
-                    }
-                }
+                this.totalCount = item.play_info.list.length;
 
-                this.totalCount = res.play_info.list.length;
-
-                res.play_info.list.forEach((imgitem,i) => {
+                item.play_info.list.forEach((imgitem,i) => {
                     this.pageList[i] = {url:imgitem}
                 })
                 this.docPageList[page-1] = this.pageList[page - 1]
+
+                console.log(this.totalCount)
                 callback && callback(this.totalCount)
 
 

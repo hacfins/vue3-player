@@ -40,19 +40,10 @@
         },
         methods   : {
             filePlay(){
-                var res = {
-                    play_info:{
-                        list:[]
-                    }
-                }
-                this.curImgSrc = res.play_info.list[0];
+                this.curImgSrc = this.playSection.play_info.list[0];
 
             },
-
-
             previewPic(){
-
-
 
             }
 

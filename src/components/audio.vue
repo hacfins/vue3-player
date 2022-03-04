@@ -151,13 +151,8 @@
             this.audioOpen = false;
         },
       currentAudio () {
-          var res = {
-              play_info:{
-                  list:[]
-              }
-          }
           this.currentAudioData = {
-              url:res.play_info.list[0]
+              url:this.curItem.play_info.list[0]
           }
           this.$refs.player && this.$refs.player.load()
       },
@@ -221,25 +216,15 @@
       },
       prev: function () {
           if(this.listData.length == 1 || this.listData.length == 0){
+              this.$message.error('没有上一首')
               return;
           }
         if (this.audioIndex == 0) {
           if (this.repeat) {
-              if(this.is_share){
-                  this.$parent.$parent.audioItem = this.listData[this.listData.length - 1]
-
-              }else{
-                  this.$parent.$parent.$parent.$parent.playSection = this.listData[this.listData.length - 1]
-
-              }
+              this.$parent.$parent.$parent.$parent.playSection = this.listData[this.listData.length - 1]
           }
         } else {
-            if(this.is_share){
-                this.$parent.$parent.audioItem = this.listData[this.audioIndex - 1]
-            }else{
-                this.$parent.$parent.$parent.$parent.playSection  = this.listData[this.audioIndex - 1]
-
-            }
+            this.$parent.$parent.$parent.$parent.playSection  = this.listData[this.audioIndex - 1]
 
         }
         this.isPause = false
@@ -247,25 +232,16 @@
       },
       next: function () {
           if(this.listData.length == 1 || this.listData.length == 0){
+              this.$message.error('没有下一首')
               return;
           }
         if (this.audioIndex == this.listData.length - 1) {
           if (this.repeat) {
-              if(this.is_share){
-                  this.$parent.$parent.audioItem = this.listData[0]
-              }else{
-                  this.$parent.$parent.$parent.$parent.playSection  = this.listData[0]
-
-              }
+              this.$parent.$parent.$parent.$parent.playSection  = this.listData[0]
 
           }
         } else {
-            if(this.is_share){
-                this.$parent.$parent.audioItem = this.listData[this.audioIndex + 1]
-            }else{
-                this.$parent.$parent.$parent.$parent.playSection  = this.listData[this.audioIndex + 1]
-
-            }
+            this.$parent.$parent.$parent.$parent.playSection  = this.listData[this.audioIndex + 1]
 
         }
         this.isPause = false
