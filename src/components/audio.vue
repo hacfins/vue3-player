@@ -221,10 +221,10 @@
           }
         if (this.audioIndex == 0) {
           if (this.repeat) {
-              this.$parent.$parent.$parent.$parent.playSection = this.listData[this.listData.length - 1]
+              this.$parent.$parent.playSection = this.listData[this.listData.length - 1]
           }
         } else {
-            this.$parent.$parent.$parent.$parent.playSection  = this.listData[this.audioIndex - 1]
+            this.$parent.$parent.playSection  = this.listData[this.audioIndex - 1]
 
         }
         this.isPause = false
@@ -237,11 +237,11 @@
           }
         if (this.audioIndex == this.listData.length - 1) {
           if (this.repeat) {
-              this.$parent.$parent.$parent.$parent.playSection  = this.listData[0]
+              this.$parent.$parent.playSection  = this.listData[0]
 
           }
         } else {
-            this.$parent.$parent.$parent.$parent.playSection  = this.listData[this.audioIndex + 1]
+            this.$parent.$parent.playSection  = this.listData[this.audioIndex + 1]
 
         }
         this.isPause = false

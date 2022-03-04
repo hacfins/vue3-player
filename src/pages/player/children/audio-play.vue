@@ -48,6 +48,7 @@
         },
         mounted(){
 
+
         },
         methods   : {
             filePlay(){
@@ -72,7 +73,6 @@
 
         },
         watch     : {
-
         }
     }
 </script>
