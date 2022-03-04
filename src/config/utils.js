@@ -91,3 +91,141 @@ export const IsDD = function () {
 
     return ua.match(/dingtalk/i) == "dingtalk";
 }
+export const isStorageSuport = function (storage) {
+    if (!!storage) {
+        try {
+            storage.setItem("key", "value");
+            storage.removeItem("key");
+            return true;
+        } catch (e) {
+            return false;
+        }
+    } else {
+        return false;
+    }
+}
+
+export const getSessionStorage = function (key, expiresTime) {
+    if (isStorageSuport(window.sessionStorage)) {
+        var returnValue;
+        if (expiresTime) {
+            if (sessionStorage.getItem(key)) {
+                var GetDateTime = new Date().getTime();
+                var setDataTime = sessionStorage.getItem(key).split('|')[1];
+                if (GetDateTime - setDataTime > expiresTime) {
+                    sessionStorage.removeItem(key);
+                    returnValue = undefined;
+                } else {
+                    returnValue = sessionStorage.getItem(key).split('|')[0]
+                }
+            } else {
+                returnValue = undefined;
+            }
+        } else {
+            returnValue = sessionStorage.getItem(key)
+        }
+        return returnValue;
+    } else {
+        return getCookie(key);
+    }
+}
+
+export const setSessionStorage    = function (key, data, expiresTime, stortime) {
+    if (isStorageSuport(window.sessionStorage)) {
+        if (expiresTime) {
+            //存入当前时间，以便在获取的时候超过30天之后又清除缓存
+            var SetDateTime = new Date().getTime();
+            if (stortime) {
+                SetDateTime = stortime;
+            }
+            data += '|' + SetDateTime + '';
+            setLocalStorage(key, SetDateTime)
+        }
+        sessionStorage.setItem(key, data);
+    } else {
+        setCookie(key, data);
+    }
+}
+export const deleteSessionStorage = function (key) {
+    if (isStorageSuport(window.sessionStorage)) {
+        sessionStorage.removeItem(key);
+    } else {
+        removeCookie(key, '', {expires: -1}); // 删除 cookie
+    }
+}
+export const getLocalStorage      = function (key) {
+    if (isStorageSuport(window.localStorage)) {
+        return localStorage.getItem(key);
+    } else {
+        return getCookie(key);
+    }
+}
+export const setLocalStorage      = function (key, data) {
+    if (isStorageSuport(window.localStorage)) {
+        localStorage.setItem(key, data);
+    } else {
+        setCookie(key, data);
+    }
+}
+
+export const deleteLocalStorage = function (key) {
+    if (isStorageSuport(window.localStorage)) {
+        localStorage.removeItem(key);
+    } else {
+        removeCookie(key); // 删除 cookie
+    }
+}
+
+/**
+ *
+ * @param name
+ * @param value
+ * @param min
+ */
+export const setCookie = function (name, value, min) {
+    if (min) {
+        var date = new Date();
+        date.setTime(date.getTime() + (min * 60 * 1000));
+        var expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+
+}
+/**
+ *
+ * @param name
+ */
+export const getCookie = function (name) {
+    var arr, reg = new RegExp("(^| )" + name + "=([^;]*)(;|$)");
+    if (arr = document.cookie.match(reg)) {
+        return unescape(arr[2]);
+    } else {
+        return "";
+    }
+
+}
+
+/**
+ *
+ * @param name
+ */
+export const removeCookie = function (name) {
+    var exp = new Date();
+    exp.setTime(exp.getTime() - 16000);
+    var cval = getCookie(name);
+    if (cval != null) {
+        document.cookie = name + "=" + cval + ";expires=" + exp.toGMTString() + ";path=/";
+    }
+
+}
+//清除所有cookie函数
+export const clearAllCookie = function (){
+    var keys = document.cookie.match(/[^ =;]+(?=\=)/g);
+    if(keys) {
+        for(var i = keys.length; i--;)
+            document.cookie = keys[i] + '=0;expires=' + new Date(0).toUTCString()
+    }
+}

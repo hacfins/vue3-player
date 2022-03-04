@@ -8,6 +8,7 @@
             refname="playvideo"
             :options="playerOptions"
             :playsinline="true"
+            :videoInfo="videoInfo"
             @play="onPlayerPlay($event)"
             @pause="onPlayerPause($event)"
             @ended="onPlayerEnded($event)"
@@ -27,12 +28,17 @@
 
 <script>
     import PlayVideo from 'components/video'
+    import {getLocalStorage,deleteLocalStorage,setLocalStorage} from '@/config/utils'
     export default {
         props     : {
             playSection: {
                 type   : Object,
                 default: null
             },
+            videoInfo:{
+                type   : Object,
+                default: null
+            }
         },
         data(){
             return {
@@ -65,7 +71,7 @@
                 _removeClass('.vjs-menu-item', 'vjs-selected')
                 _addClass(_dom('.vjs-menu-item')[0], 'vjs-selected')
                 _dom('.vjs-resolution-button-label').length > 0 && (_dom('.vjs-resolution-button-label')[0].innerHTML = '高清');
-                this.filePlay(2);
+                this.filePlay();
                 document.documentElement.off('keydown')
                 document.documentElement.on('keydown', (event) => {
                     if (event.keyCode == 13 || event.keyCode == 32) {
@@ -84,29 +90,15 @@
                     }
                 })
             },
-            filePlay(resolution){
-                var count = 1;
-                var res = {
-                    play_info:{
-                        list:[]
-                    }
-                }
-
-
-                this.resourses   = count;
+            filePlay(){
                 this.isShowVideo = true;
                 if (!this.rePlaySrc) {
                     this.playerOptions.sources = [{
-                        src: res.play_info.list[0]
+                        src: this.playSection.play_info.list[0]
                     }]
                     this.rePlaySrc             = true;
                 } else {
-                    if (count != 2) {
-                        _hide('.vjs-resolution-button')
-                    } else {
-                        _show('.vjs-resolution-button')
-                    }
-                    this.myplayer.src(res.play_info.list[0]);
+                    this.myplayer.src(this.playSection.play_info.list[0]);
                 }
 
 
